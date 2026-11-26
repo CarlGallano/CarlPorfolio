@@ -1,0 +1,12 @@
+/* ---------- Coverflow gallery (Skiper 47 port) ---------- */
+.coverflow{width:100%}
+.coverflow-swiper{width:100%;padding-bottom:50px !important}
+.coverflow-slide{height:320px;border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden}
+.coverflow-img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.coverflow .swiper-pagination{bottom:0 !important}
+.coverflow .swiper-pagination-bullet{background:var(--gray);opacity:.5;transition:opacity .2s,background .2s}
+.coverflow .swiper-pagination-bullet-active{background:var(--white);opacity:1}
+
+@media (max-width:809.98px){
+  .coverflow-slide{height:220px}
+}

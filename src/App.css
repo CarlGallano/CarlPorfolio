@@ -1,0 +1,179 @@
+/* ---------- Tokens (from Framer color/text styles) ---------- */
+:root{
+  --black:rgb(21,19,18);
+  --white:rgb(255,255,255);
+  --gray:rgb(153,143,143);
+  --orange:rgb(244,108,56);
+  --green:rgb(197,255,65);
+  --soft-gray:rgba(182,180,189,.2);
+
+  --h1:110px; --h2:90px; --p:18px; --stat:70px;
+  --section-top:120px; --page-top:160px;
+  --container-pad:40px; --container-gap:100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Poppins,sans-serif;font-size:var(--p);line-height:1.4}
+a{color:inherit;text-decoration:none}
+
+/* ---------- Page frame ---------- */
+.page{padding-top:var(--page-top);display:flex;flex-direction:column;align-items:center;position:relative}
+.wrapper{width:100%;display:flex;justify-content:center}
+.container{width:100%;padding:0 var(--container-pad);display:flex;align-items:flex-start;gap:var(--container-gap)}
+
+/* ---------- Nav (icon bar) ---------- */
+.nav{position:absolute;top:30px;left:50%;transform:translateX(-50%);z-index:10;
+  display:flex;align-items:center;gap:0;padding:0 8px;height:80px;border-radius:26px;
+  background:rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav a{width:84px;height:56px;display:grid;place-items:center;border-radius:18px;color:var(--white);transition:background .2s}
+.nav a:hover{background:rgba(255,255,255,.08)}
+.nav a:focus-visible{outline:2px solid var(--green);outline-offset:-2px}
+.nav svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Left (sticky profile) ---------- */
+.left{position:sticky;top:40px;z-index:1;width:400px;flex:none}
+.profile{width:100%;height:680px;
+  display:flex;flex-direction:column;align-items:center;padding:0;text-align:center}
+.profile-lanyard{width:100%;height:520px;margin-top:-110px;flex:none;position:relative}
+.profile strong{font-size:34px;line-height:1.1;text-transform:uppercase;color:var(--white);margin-top:28px}
+.profile p{color:var(--gray);font-size:16px;line-height:1.5;margin-top:10px}
+.socials{margin-top:18px;display:flex;gap:18px}
+.socials a{color:var(--orange);transition:opacity .2s}
+.socials a:hover{opacity:.7}
+.socials svg{width:28px;height:28px;fill:currentColor;stroke:none}
+
+/* ---------- Right column ---------- */
+.right{flex:1;min-width:0;display:flex;flex-direction:column}
+.hero{display:flex;flex-direction:column;gap:60px;overflow:hidden}
+h1,h2{font-weight:700;line-height:1;text-transform:none}
+h1{font-size:var(--h1)}
+h2{font-size:var(--h2);white-space:pre-line}
+h2 .dim{color:rgba(255,255,255,.3)}
+.hero p.lead{color:var(--gray);margin-top:10px;max-width:560px}
+
+.stats{display:flex;align-items:center;gap:40px}
+.stat{font-weight:700;line-height:1.1;text-align:center}
+.stat b{display:block;font-size:min(var(--stat),44px)}
+
+.cards{display:flex;gap:30px;height:240px}
+.card{position:relative;flex:1;padding:40px 20px 22px;display:flex;flex-direction:column;justify-content:space-between;
+  color:var(--black);overflow:hidden;border-radius:0}
+.card.orange{background:var(--orange);flex:none;width:300px}
+.card.green{background:var(--green)}
+.card .icon{width:38px;height:38px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.card .label{font-size:24px;font-weight:700;line-height:1.1}
+.arrow{flex:none;width:32px;height:32px;border-radius:50%;background:var(--black);color:var(--white);display:grid;place-items:center}
+.arrow svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ---------- Sections ---------- */
+.section{padding-top:var(--section-top);display:flex;flex-direction:column;gap:20px;overflow:hidden}
+.section.contact{gap:50px}
+.list{display:flex;flex-direction:column}
+.item{padding:28px 0;border-bottom:1px solid var(--soft-gray);display:flex;justify-content:space-between;gap:20px}
+.item h3{font-size:24px}
+.item p{color:var(--gray);font-size:16px}
+.item .status{font-weight:700;font-size:18px;white-space:nowrap}
+.item-pic{flex:none;width:104px;height:66px;object-fit:cover;border-radius:12px}
+.item.project{border-bottom:0;align-items:center;gap:28px;padding:26px 0}
+.item.project .item-pic{width:176px;height:132px;border-radius:16px}
+.item.project h3{font-size:28px}
+.item.project p{font-size:15px}
+.item-text{max-width:520px}
+.item-arrow{flex:none;margin-left:auto;color:var(--orange);transition:transform .2s,opacity .2s}
+.item-arrow:hover{transform:translate(3px,-3px);opacity:.8}
+.item-arrow svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.certs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cert{background:var(--soft-gray);border-radius:16px;padding:24px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transition:background .2s;position:relative;overflow:hidden}
+.cert.is-preview{padding:0;height:230px;border:1px solid rgba(255,255,255,.08)}
+.cert.is-preview .cert-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;transition:transform .2s}
+.cert.is-preview:hover .cert-bg{transform:scale(1.03)}
+.cert:hover{background:rgba(182,180,189,.3)}
+.cert:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.cert .badge{width:44px;height:44px;border-radius:50%;background:var(--green);color:var(--black);display:grid;place-items:center}
+.cert .badge svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cert h3{font-size:20px;line-height:1.2}
+.cert p{color:var(--gray);font-size:14px;margin-top:4px}
+.cert .meta{display:flex;justify-content:space-between;align-items:center;color:var(--gray);font-size:14px}
+.grid{display:grid;grid-template-columns:1fr;gap:18px}
+.tool{border-radius:16px;padding:14px 24px;display:flex;align-items:center;gap:16px}
+.tool-badge{flex:none;width:64px;height:64px;border-radius:16px;background:var(--white);display:grid;place-items:center}
+.tool-logo{width:34px;height:34px;object-fit:contain}
+.tool-text{display:flex;flex-direction:column;gap:2px}
+.tool-text b{font-size:20px}
+.tool-text small{color:var(--gray);font-size:14px;font-weight:400}
+
+/* ---------- Tech stack icons ---------- */
+.stack-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.stack-item{background:var(--soft-gray);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px}
+.stack-badge{flex:none;width:52px;height:52px;border-radius:12px;background:var(--white);color:var(--black);display:grid;place-items:center}
+.stack-logo{width:28px;height:28px}
+
+/* ---------- Tech stack logo loop ---------- */
+.stack-loop{align-self:stretch;color:var(--white)}
+.carousel-box{align-self:stretch;display:grid;place-items:center;min-height:480px}
+.articles{display:flex;gap:20px}
+.article{flex:1;background:var(--soft-gray);border-radius:16px;padding:24px;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.article p{color:var(--gray);font-size:14px}
+
+form{display:flex;flex-direction:column;gap:16px}
+input,textarea{width:100%;background:var(--soft-gray);border:1px solid transparent;border-radius:12px;padding:16px;
+  color:var(--white);font:inherit;font-size:16px}
+input:focus,textarea:focus{outline:2px solid var(--green);outline-offset:2px}
+textarea{min-height:140px;resize:vertical}
+button.send{align-self:flex-start;background:var(--green);color:var(--black);border:0;border-radius:999px;
+  padding:14px 28px;font:inherit;font-weight:700;cursor:pointer}
+button.send:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+
+footer{width:100%;margin-top:160px;padding:80px 20px;text-align:center;color:var(--gray);font-size:14px;border-top:1px solid var(--soft-gray)}
+
+/* ---------- Entrance effect (fade + slide from -20px) ---------- */
+.fx{opacity:0;transform:translateY(-20px);transition:opacity .5s cubic-bezier(.44,0,.56,1),transform .5s cubic-bezier(.44,0,.56,1)}
+.fx.in{opacity:1;transform:none}
+.delay{transition-delay:.2s}
+@media (prefers-reduced-motion:reduce){.fx{opacity:1;transform:none;transition:none}}
+
+/* ---------- Item reveal on scroll (staggered) ---------- */
+.fx-item{opacity:0}
+.fx-item.in{animation:rise .6s cubic-bezier(.44,0,.56,1) var(--d,0ms) both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fx-item{opacity:1}.fx-item.in{animation:none}}
+
+/* ---------- Desktop (Small): 1080–1439 ---------- */
+@media (max-width:1439.98px){
+  :root{--h1:94px;--container-pad:40px;--container-gap:50px}
+  .cards{gap:20px;height:260px}
+}
+/* ---------- Tablet: 810–1079 ---------- */
+@media (max-width:1079.98px){
+  :root{--h1:86px;--h2:74px;--section-top:90px;--page-top:120px;--container-pad:30px}
+  .container{flex-direction:column;gap:40px;align-items:stretch}
+  .left{position:relative;top:0;width:100%}
+  .right{flex:none;width:100%}
+  .profile{width:100%;height:660px}
+  .section h2{text-align:center}
+  .stats{justify-content:center}
+  .articles{justify-content:center}
+}
+/* ---------- Phone: <810 ---------- */
+@media (max-width:809.98px){
+  :root{--h1:52px;--h2:42px;--p:16px;--stat:56px;--section-top:80px;--page-top:100px;--container-pad:20px}
+  .nav{top:20px}
+  .profile{height:auto;min-height:320px}
+  .hero{gap:70px}
+  .stats{flex-wrap:wrap;gap:26px}
+  .cards{flex-direction:column;gap:20px;height:auto}
+  .card,.card.orange{width:100%;min-height:240px}
+  .certs{grid-template-columns:1fr}
+  .nav{height:68px;padding:0 6px}
+  .nav a{width:62px;height:48px}
+  .nav svg{width:26px;height:26px}
+  .articles{flex-direction:column;gap:0}
+  .article{margin-bottom:20px}
+  .item.project{gap:14px;padding:18px 0}
+  .item.project .item-pic{width:96px;height:72px;border-radius:12px}
+  .item.project h3{font-size:19px}
+  .item.project p{font-size:13px}
+  .item-text{min-width:0}
+  .item-arrow svg{width:20px;height:20px}
+}

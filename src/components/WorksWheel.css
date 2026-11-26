@@ -1,0 +1,24 @@
+/* ---------- Projects wheel (ported from crafterui WorksWheel) ---------- */
+.works-wheel{position:relative;height:560px;min-height:24rem;width:100%;overflow:hidden;user-select:none;-webkit-user-select:none}
+.works-stage{position:absolute;inset:0;cursor:grab;touch-action:pan-x;outline:none}
+.works-stage:active{cursor:grabbing}
+.works-stage:focus-visible{outline:2px solid var(--green);outline-offset:-4px}
+.works-turn{position:absolute;top:50%;left:50%;transform-style:preserve-3d}
+.works-card{position:absolute;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.works-card a,.works-card{display:block}
+.works-face{position:relative;display:block;width:100%;height:100%;overflow:hidden;border-radius:14px;background:var(--soft-gray);box-shadow:0 18px 40px -18px rgba(0,0,0,.55)}
+.works-face img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.works-action{pointer-events:none;position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:5px;border-radius:999px;padding:5px 11px;font-size:11px;font-weight:500;background:rgba(21,19,18,.8);color:var(--white);backdrop-filter:blur(4px);opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+.works-card:hover .works-action{opacity:1;transform:none}
+.works-action svg{width:10px;height:10px}
+.works-ring-label{pointer-events:none;position:absolute;inset:0;display:grid;place-items:center;letter-spacing:-.02em}
+.works-front-title{pointer-events:none;position:absolute;top:50%;left:8%;transform:translateY(-50%);letter-spacing:-.02em;opacity:0}
+.works-index{position:absolute;top:7.5%;right:2.5%;text-align:right;line-height:1.75;color:var(--gray);margin:0;padding:0;list-style:none}
+.works-index button{cursor:pointer;outline:none;transition:color .2s}
+.works-index button:focus-visible{outline:1px solid var(--green)}
+.works-index button.on{color:var(--white);font-weight:500}
+
+@media (max-width:809.98px){
+  .works-wheel{height:460px}
+  .works-stage{touch-action:pan-y}
+}
